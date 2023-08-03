@@ -1,0 +1,15 @@
+[package]
+name = "balboa-compression-rtsp"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+stallone = { path = "../../../stallone/log" }
+balboa-compression = { path = "../core" }
+balboa-coroutine = { path = "../../coroutine" }
+snafu = "0.7.1"
+arrayvec = "0.7.2"
+memmap2 = "0.5.5"
+parking_lot = "0.12.1"
+rustc-hash = "1.1.0"
+memchr = "2.5.0"

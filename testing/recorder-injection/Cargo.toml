@@ -1,0 +1,17 @@
+[package]
+name = "balboa-recorder-injection"
+version = "0.1.0"
+authors = ["Brent Carmer <bcarmer@galois.com>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+balboa-injection = { path = "../../balboa/injection" }
+balboa-rewriter = { path = "../../balboa/rewriter" }
+balboa-compression = { path = "../../balboa/compression/core" }
+stallone = { path = "../../stallone/log" }
+lazy_static = "1.4.0"
+serde = { version = "1.0.140", features = ["derive"] }
+serde_json = "1.0.82"

@@ -1,0 +1,65 @@
+[workspace]
+members = [
+  "balboa/compression/conti",
+  "balboa/compression/conti/crc",
+  "balboa/compression/core",
+  "balboa/compression/http",
+  "balboa/compression/http/header-names",
+  "balboa/compression/rtsp",
+  "balboa/coroutine",
+  "balboa/covert-signaling-types",
+  "balboa/injection",
+  "balboa/injection/openssl",
+  "balboa/injections/ffplay-rtsp",
+  "balboa/injections/firefox",
+  "balboa/injections/icecast",
+  "balboa/injections/nginx",
+  "balboa/injections/socat-rtsp",
+  "balboa/injections/vlc",
+  "balboa/ipc-protocol",
+  "balboa/rewriter",
+  "mickey/balboa-ipc",
+  "mickey/protocol",
+  "mickey/server",
+  "stallone/common",
+  "stallone/derive",
+  "stallone/log",
+  "stallone/master",
+  "stallone/parsing",
+  "stallone/tools",
+  "testing/integration/gnutls-echo",
+  "testing/integration/inverting-rewriter",
+  "testing/integration/openssl-echo",
+  "testing/recorder-injection",
+  "utils/scm-rights",
+  "utils/systemd-ready",
+]
+
+[profile.release]
+opt-level = 3
+debug = true
+debug-assertions = false
+overflow-checks = false
+incremental = false
+codegen-units = 1
+lto = true
+
+[profile.bench]
+opt-level = 3
+debug = true
+debug-assertions = false
+overflow-checks = false
+incremental = false
+codegen-units = 1
+lto = true
+
+[profile.dev]
+opt-level = 0
+debug = true
+debug-assertions = true
+overflow-checks = true
+lto = false
+
+[patch.crates-io]
+ring = { path = "./third_party/ring" }
+serdebug = { path = "./third_party/serdebug" }

@@ -1,0 +1,12 @@
+[package]
+name = "mickey-protocol"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+scm-rights = { path = "../../utils/scm-rights" }
+stallone = { path = "../../stallone/log" }
+serde = { version = "1.0.140", features = ["derive"] }
+balboa-covert-signaling-types = { path = "../../balboa/covert-signaling-types" }
+

@@ -1,0 +1,16 @@
+[package]
+name = "balboa-injection-openssl-echo"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+balboa-injection = { path = "../../../balboa/injection" }
+balboa-openssl-injection = { path = "../../../balboa/injection/openssl" }
+balboa-rewriter = { path = "../../../balboa/rewriter" }
+balboa-compression = { path = "../../../balboa/compression/core" }
+balboa-testing-inverting-rewriter = { path = "../inverting-rewriter" }
+stallone = { path = "../../../stallone/log" }

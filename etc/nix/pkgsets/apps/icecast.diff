@@ -1,0 +1,53 @@
+diff --git a/src/stats.c b/src/stats.c
+index b1c9d90..d03de59 100644
+--- a/src/stats.c
++++ b/src/stats.c
+@@ -140,6 +140,23 @@ void stats_initialize(void)
+ 
+     /* fire off the stats thread */
+     _stats_running = 1;
++    stats_event_time (NULL, "server_start");
++    stats_event_time_iso8601 (NULL, "server_start_iso8601");
++
++    /* global currently active stats */
++    stats_event (NULL, "clients", "0");
++    stats_event (NULL, "connections", "0");
++    stats_event (NULL, "sources", "0");
++    stats_event (NULL, "stats", "0");
++    stats_event (NULL, "listeners", "0");
++
++    /* global accumulating stats */
++    stats_event (NULL, "client_connections", "0");
++    stats_event (NULL, "source_client_connections", "0");
++    stats_event (NULL, "source_relay_connections", "0");
++    stats_event (NULL, "source_total_connections", "0");
++    stats_event (NULL, "stats_connections", "0");
++    stats_event (NULL, "listener_connections", "0");
+     _stats_thread_id = thread_create("Stats Thread", _stats_thread, NULL, THREAD_ATTACHED);
+ }
+ 
+@@ -667,24 +684,6 @@ static void *_stats_thread(void *arg)
+     stats_event_t *copy;
+     event_listener_t *listener;
+ 
+-    stats_event_time (NULL, "server_start");
+-    stats_event_time_iso8601 (NULL, "server_start_iso8601");
+-
+-    /* global currently active stats */
+-    stats_event (NULL, "clients", "0");
+-    stats_event (NULL, "connections", "0");
+-    stats_event (NULL, "sources", "0");
+-    stats_event (NULL, "stats", "0");
+-    stats_event (NULL, "listeners", "0");
+-
+-    /* global accumulating stats */
+-    stats_event (NULL, "client_connections", "0");
+-    stats_event (NULL, "source_client_connections", "0");
+-    stats_event (NULL, "source_relay_connections", "0");
+-    stats_event (NULL, "source_total_connections", "0");
+-    stats_event (NULL, "stats_connections", "0");
+-    stats_event (NULL, "listener_connections", "0");
+-
+     ICECAST_LOG_INFO("stats thread started");
+     while (_stats_running) {
+         thread_mutex_lock(&_global_event_mutex);

@@ -1,0 +1,24 @@
+[package]
+name = "stallone"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+publish = false
+
+[dependencies]
+smallvec = "1.9.0"
+arrayvec = "0.7.2"
+stallone-common = { path = "../common" }
+stallone-derive = { path = "../derive" }
+libc = "0.2.126"
+getrandom = "0.2.7"
+memoffset = "0.6.5"
+errno = "0.2.8"
+scm-rights = { path = "../../utils/scm-rights" }
+uuid = { version = "1.1.2", features = ["v4"] }
+
+[build-dependencies]
+cc = "1.0.73"
+
+[dev-dependencies]
+object = "0.29.0"

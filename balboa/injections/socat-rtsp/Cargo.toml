@@ -1,0 +1,15 @@
+[package]
+name = "balboa-injection-socat-rtsp"
+version = "0.1.0"
+authors = ["Eric Mertens <emertens@galois.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+balboa-injection = { path = "../../injection" }
+balboa-openssl-injection = { path = "../../injection/openssl" }
+balboa-rewriter = { path = "../../rewriter" }
+balboa-compression = { path = "../../compression/core" }
+balboa-compression-rtsp = { path = "../../compression/rtsp" }

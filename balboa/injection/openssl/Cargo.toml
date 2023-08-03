@@ -1,0 +1,11 @@
+[package]
+name = "balboa-openssl-injection"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+balboa-injection = { path = ".." }
+balboa-rewriter = { path = "../../rewriter" }
+lazy_static = "1.4.0"
+libc = "0.2.126"

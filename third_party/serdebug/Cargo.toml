@@ -1,0 +1,12 @@
+[package]
+name = "serdebug"
+description = "serde-based replacement for #[derive(Debug)]"
+version = "1.0.5"
+authors = ["Ingvar Stepanyan <me@rreverser.com>"]
+license = "MIT"
+repository = "https://github.com/RReverser/serdebug"
+categories = ["development-tools::debugging", "value-formatting"]
+keywords = ["serialization", "serde", "debug", "formatting", "derive"]
+
+[dependencies]
+serde = "*"

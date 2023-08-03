@@ -1,0 +1,21 @@
+[package]
+name = "stallone-master"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+stallone-common = { path = "../common" }
+stallone-parsing = { path = "../parsing" }
+crossbeam-channel = "0.5.6"
+nix = "0.25.0"
+snafu = "0.7.1"
+# We use a standard logger, to avoid a feedback loop.
+log = "0.4.17"
+serde_bytes = "0.11.6"
+libc = "0.2.126"
+parking_lot = "0.12.1"
+smallvec = "1.9.0"
+gethostname = "0.2.3"
+get_if_addrs = "0.5.3"
+

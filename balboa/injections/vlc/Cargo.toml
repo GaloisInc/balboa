@@ -1,0 +1,15 @@
+[package]
+name = "balboa-injection-vlc"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+balboa-injection = { path = "../../injection" }
+balboa-rewriter = { path = "../../rewriter" }
+balboa-compression = { path = "../../compression/core" }
+conti = { path = "../../compression/conti" }
+stallone = { path = "../../../stallone/log" }

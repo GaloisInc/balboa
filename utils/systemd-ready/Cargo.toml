@@ -1,0 +1,11 @@
+[package]
+name = "systemd-ready"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+stallone-common = { path = "../../stallone/common" }
+
+[dev-dependencies]
+tempfile = "3.3.0"

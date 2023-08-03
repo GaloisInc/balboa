@@ -1,0 +1,10 @@
+[package]
+name = "balboa-compression"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+publish = false
+
+[dependencies]
+balboa-coroutine = { path = "../../coroutine" }
+stallone = { path = "../../../stallone/log" }

@@ -1,0 +1,48 @@
+[package]
+name = "balboa-rewriter"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+nix = "0.25.0"
+parking_lot = "0.12.1"
+balboa-compression = { path = "../compression/core" }
+balboa-coroutine = { path = "../coroutine" }
+hex = "0.4.3"
+stallone = { path = "../../stallone/log" }
+snafu = "0.7.1"
+smallvec = "1.9.0"
+balboa-covert-signaling-types = { path = "../covert-signaling-types" }
+libc = "0.2.126"
+
+ring = "0.16.20"
+
+# NOTE: these libraries come with no security guarntees!
+aes = "0.8.1"
+ctr = "0.9.1"
+chacha20 = "0.9.0"
+ghash = "0.5.0"
+poly1305 = "0.8.0"
+subtle = "2.4.1"
+
+blake3 = "1.3.1"
+
+[dev-dependencies]
+aes-gcm = "0.10.1"
+proptest = "1.0.0"
+rand = "0.8.5"
+log = "0.4.17"
+hex = "0.4.3"
+os_pipe = "1.0.1"
+smallbox = "0.8.1"
+rustls-pemfile = "1.0.0"
+
+[dev-dependencies.rustls]
+version = "0.20.6"
+features = ["dangerous_configuration", "logging"]
+
+
+[[bench]]
+name = "simple_tlsrewriter_bench"
+harness = false

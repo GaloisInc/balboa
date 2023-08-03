@@ -1,0 +1,120 @@
+default:
+  tags: [docker-nix]
+  image: "artifactory.galois.com:5001/rocky:ci7"
+  interruptible: true
+  before_script:
+    - export NIX_PATH="nixpkgs=$PWD/etc/nix/pkgs.nix"
+    - ./.ci/rocky_sccache_server/spawn.sh
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+variables:
+  DEBIAN_FRONTEND: noninteractive
+  ROCKY_IS_IN_CI: 1
+
+stages:
+  - build
+  - test
+
+.not-schedule:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "schedule"'
+      when: on_success
+
+.schedule:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: on_success
+
+.python-tests:
+  artifacts:
+    when: always
+    paths:
+      - rocky.junit.xml
+      - rocky.logs.tar.xz
+      - rocky.logs.txt.xz
+    reports:
+      junit: rocky.junit.xml
+    expire_in: 1 week
+
+checkfmt:
+  stage: test
+  script:
+    - ./rocky format --check
+
+mypy:
+  stage: test
+  script:
+    - ./rocky mypy
+
+test-rust:
+  stage: test
+  script:
+    - ./rocky ci-helpers test-rust
+    - ./.ci/sccache-stats.sh
+
+# We combine do the building and the testing in the same job as the smoketests, since sccache isn't
+# good enough for it make sense to parallelize this work.
+debug-build-and-smoke-test:
+  extends:
+    - .not-schedule
+    - .python-tests
+  stage: test
+  script:
+    - ./rocky ci-helpers compile-rust
+    - ./.ci/rocky-with-logs.sh test --no-nightly-tests --junit-xml ./rocky.junit.xml --compress-logs-to ./rocky.logs.tar.xz
+    - ./.ci/sccache-stats.sh
+
+build-debug:
+  extends: [.schedule]
+  stage: build
+  script:
+    - ./rocky ci-helpers compile-rust
+    - ./.ci/sccache-stats.sh
+
+build-release:
+  extends: [.schedule]
+  stage: build
+  script:
+    - ./rocky ci-helpers compile-rust --release
+    - ./.ci/sccache-stats.sh
+
+all-smoke-tests:
+  extends:
+    - .schedule
+    - .python-tests
+  stage: test
+  script:
+    - ./.ci/rocky-with-logs.sh test --build-mode both --junit-xml ./rocky.junit.xml --compress-logs-to ./rocky.logs.tar.xz
+    - ./.ci/sccache-stats.sh
+
+# These are mostly to make sure that these commands don't go stale/stop working, rather than
+# because the results will be very important.
+mickey-benchmark:
+  extends:
+    - .schedule
+  stage: test
+  script:
+    - ./rocky bench mickey
+    - ./.ci/sccache-stats.sh
+  artifacts:
+    when: always
+    paths:
+      - target/mickey-bench-report.html
+    expire_in: 1 week
+
+pdoc:
+  extends:
+    - .schedule
+  stage: test
+  script:
+    - ./rocky pdoc
+  artifacts:
+    when: always
+    paths:
+      - target/pdoc
+    expire_in: 1 week
+

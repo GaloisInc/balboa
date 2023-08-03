@@ -1,0 +1,16 @@
+[package]
+name = "balboa-injection-nginx"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+balboa-injection = { path = "../../injection" }
+balboa-rewriter = { path = "../../rewriter" }
+balboa-compression = { path = "../../compression/core" }
+balboa-compression-http = { path = "../../compression/http" }
+balboa-openssl-injection = { path = "../../injection/openssl" }
+stallone = { path = "../../../stallone/log" }
+hex = "0.4.3"

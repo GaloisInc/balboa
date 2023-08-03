@@ -1,0 +1,32 @@
+[package]
+name = "mickey-server"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+stallone = { path = "../../stallone/log" }
+stallone-common = { path = "../../stallone/common" }
+scm-rights = { path = "../../utils/scm-rights" }
+systemd-ready = { path = "../../utils/systemd-ready" }
+mickey-protocol = { path = "../protocol" }
+mickey-balboa-ipc = { path = "../balboa-ipc" }
+balboa-covert-signaling-types = { path = "../../balboa/covert-signaling-types" }
+
+jemallocator = "0.5.0"
+structopt = "0.3.26"
+stderrlog = "0.5.3"
+serde = { version = "1.0.140", features = ["derive"] }
+serde_json = "1.0.82"
+hex = "0.4.3"
+parking_lot = "0.12.1"
+log = "0.4.17"
+crossbeam = "0.8.2"
+bytes = "1.2.0"
+smallvec = "1.9.0"
+bincode = "1.2.1"
+argfile = { version = "0.1.4", features = ["response"] }
+nix = "0.25.0"
+
+[dev-dependencies]
+temp_testdir = "0.2.3"

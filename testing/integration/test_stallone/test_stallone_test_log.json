@@ -1,0 +1,1202 @@
+[
+    {
+        "metadata": {
+            "level": 2,
+            "message": "this is a simple test string",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 28,
+            "column": 5,
+            "fields": []
+        },
+        "context": {},
+        "values": {}
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "test numbers",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 35,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "one_twenty_eight_signed",
+                    "type_id": "I128",
+                    "is_context": false
+                },
+                {
+                    "name": "one_twenty_eight_unsigned",
+                    "type_id": "U128",
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {},
+        "values": {
+            "one_twenty_eight_signed": -1329227995784915872903807060280344576,
+            "one_twenty_eight_unsigned": 340282366920938463463374607431768211414
+        }
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "Test result",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 40,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "ok",
+                    "type_id": {
+                        "Enum": {
+                            "name": "std::Result",
+                            "variants": [
+                                {
+                                    "name": "Ok",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": "String"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Err",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": "I32"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "err",
+                    "type_id": {
+                        "Enum": {
+                            "name": "std::Result",
+                            "variants": [
+                                {
+                                    "name": "Ok",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": "String"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "Err",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": "I32"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {},
+        "values": {
+            "ok": {
+                "Ok": {
+                    "value": "this is okay"
+                }
+            },
+            "err": {
+                "Err": {
+                    "value": 666
+                }
+            }
+        }
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "derive test enum",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 45,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "a_unit",
+                    "type_id": {
+                        "Enum": {
+                            "name": "stallone_test_log::SampleEnum",
+                            "variants": [
+                                {
+                                    "name": "AUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "BUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "ATupleLike",
+                                    "fields": [
+                                        {
+                                            "name": "0",
+                                            "ty": "U32"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "ty": "U64"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "StructLike",
+                                    "fields": [
+                                        {
+                                            "name": "t",
+                                            "ty": "U8"
+                                        },
+                                        {
+                                            "name": "y",
+                                            "ty": "U8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "b_unit",
+                    "type_id": {
+                        "Enum": {
+                            "name": "stallone_test_log::SampleEnum",
+                            "variants": [
+                                {
+                                    "name": "AUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "BUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "ATupleLike",
+                                    "fields": [
+                                        {
+                                            "name": "0",
+                                            "ty": "U32"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "ty": "U64"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "StructLike",
+                                    "fields": [
+                                        {
+                                            "name": "t",
+                                            "ty": "U8"
+                                        },
+                                        {
+                                            "name": "y",
+                                            "ty": "U8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "a_tuple_like",
+                    "type_id": {
+                        "Enum": {
+                            "name": "stallone_test_log::SampleEnum",
+                            "variants": [
+                                {
+                                    "name": "AUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "BUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "ATupleLike",
+                                    "fields": [
+                                        {
+                                            "name": "0",
+                                            "ty": "U32"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "ty": "U64"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "StructLike",
+                                    "fields": [
+                                        {
+                                            "name": "t",
+                                            "ty": "U8"
+                                        },
+                                        {
+                                            "name": "y",
+                                            "ty": "U8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "struct_like",
+                    "type_id": {
+                        "Enum": {
+                            "name": "stallone_test_log::SampleEnum",
+                            "variants": [
+                                {
+                                    "name": "AUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "BUnit",
+                                    "fields": []
+                                },
+                                {
+                                    "name": "ATupleLike",
+                                    "fields": [
+                                        {
+                                            "name": "0",
+                                            "ty": "U32"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "ty": "U64"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "StructLike",
+                                    "fields": [
+                                        {
+                                            "name": "t",
+                                            "ty": "U8"
+                                        },
+                                        {
+                                            "name": "y",
+                                            "ty": "U8"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {},
+        "values": {
+            "a_unit": "AUnit",
+            "b_unit": "BUnit",
+            "a_tuple_like": {
+                "ATupleLike": [
+                    4,
+                    6
+                ]
+            },
+            "struct_like": {
+                "StructLike": {
+                    "t": 1,
+                    "y": 89
+                }
+            }
+        }
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "derive test blarg",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 52,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "blarg",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "stallone_test_log::Blarg",
+                                "fields": [
+                                    {
+                                        "name": "another",
+                                        "ty": "String"
+                                    },
+                                    {
+                                        "name": "x",
+                                        "ty": "U32"
+                                    },
+                                    {
+                                        "name": "t",
+                                        "ty": "U8"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "pair",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "stallone_test_log::Pair",
+                                "fields": [
+                                    {
+                                        "name": "0",
+                                        "ty": "U32"
+                                    },
+                                    {
+                                        "name": "1",
+                                        "ty": "U32"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "sentinel",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "stallone_test_log::Sentinel",
+                                "fields": []
+                            }
+                        }
+                    },
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {},
+        "values": {
+            "blarg": {
+                "another": "Hello",
+                "x": 12,
+                "t": 42
+            },
+            "pair": [
+                34,
+                35
+            ],
+            "sentinel": null
+        }
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "Tuple test",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 62,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "unit",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "Tuple",
+                                "fields": []
+                            }
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "unary",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "Tuple",
+                                "fields": [
+                                    {
+                                        "name": "0",
+                                        "ty": "I32"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": true
+                },
+                {
+                    "name": "binary",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "Tuple",
+                                "fields": [
+                                    {
+                                        "name": "0",
+                                        "ty": "U32"
+                                    },
+                                    {
+                                        "name": "1",
+                                        "ty": "I128"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {
+            "unary": [
+                1
+            ]
+        },
+        "values": {
+            "unit": null,
+            "unary": [
+                1
+            ],
+            "binary": [
+                1,
+                2
+            ]
+        }
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "System time test",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 69,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "current_time",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "std::SystemTime",
+                                "fields": [
+                                    {
+                                        "name": "duration_since_epoch",
+                                        "ty": {
+                                            "Record": {
+                                                "contents": {
+                                                    "name": "std::Duration",
+                                                    "fields": [
+                                                        {
+                                                            "name": "seconds",
+                                                            "ty": "U64"
+                                                        },
+                                                        {
+                                                            "name": "subsec_nanos",
+                                                            "ty": "U32"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {
+            "unary": [
+                1
+            ]
+        },
+        "values": {
+            "current_time": {
+                "duration_since_epoch": {
+                    "seconds": 1625041067,
+                    "subsec_nanos": 240257000
+                }
+            }
+        }
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "Collections",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 73,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "names",
+                    "type_id": {
+                        "Vector": {
+                            "contents": "String"
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "phonebook",
+                    "type_id": {
+                        "MultiMap": {
+                            "key": "String",
+                            "value": "U32"
+                        }
+                    },
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {
+            "unary": [
+                1
+            ]
+        },
+        "values": {
+            "names": [
+                "Joe",
+                "Bob"
+            ],
+            "phonebook": {
+                "Bob": 456,
+                "Joe": 123
+            }
+        }
+    },
+    {
+        "metadata": {
+            "level": 2,
+            "message": "IP address tests",
+            "file": "stallone/log/examples/stallone-test-log.rs",
+            "module_path": "stallone_test_log",
+            "cargo_pkg_version": "0.1.0",
+            "line": 83,
+            "column": 5,
+            "fields": [
+                {
+                    "name": "ipv4",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "std::Ipv4Addr",
+                                "fields": [
+                                    {
+                                        "name": "value",
+                                        "ty": {
+                                            "Array": {
+                                                "length": 4,
+                                                "contents": "U8"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "ipv6",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "std::Ipv6Addr",
+                                "fields": [
+                                    {
+                                        "name": "octets",
+                                        "ty": {
+                                            "Array": {
+                                                "length": 16,
+                                                "contents": "U8"
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "ip_ipv4",
+                    "type_id": {
+                        "Enum": {
+                            "name": "std::IpAddr",
+                            "variants": [
+                                {
+                                    "name": "V4",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::Ipv4Addr",
+                                                        "fields": [
+                                                            {
+                                                                "name": "value",
+                                                                "ty": {
+                                                                    "Array": {
+                                                                        "length": 4,
+                                                                        "contents": "U8"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "V6",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::Ipv6Addr",
+                                                        "fields": [
+                                                            {
+                                                                "name": "octets",
+                                                                "ty": {
+                                                                    "Array": {
+                                                                        "length": 16,
+                                                                        "contents": "U8"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "ip_ipv6",
+                    "type_id": {
+                        "Enum": {
+                            "name": "std::IpAddr",
+                            "variants": [
+                                {
+                                    "name": "V4",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::Ipv4Addr",
+                                                        "fields": [
+                                                            {
+                                                                "name": "value",
+                                                                "ty": {
+                                                                    "Array": {
+                                                                        "length": 4,
+                                                                        "contents": "U8"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "V6",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::Ipv6Addr",
+                                                        "fields": [
+                                                            {
+                                                                "name": "octets",
+                                                                "ty": {
+                                                                    "Array": {
+                                                                        "length": 16,
+                                                                        "contents": "U8"
+                                                                    }
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "socket_ipv4",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "std::SocketAddrV4",
+                                "fields": [
+                                    {
+                                        "name": "ip",
+                                        "ty": {
+                                            "Record": {
+                                                "contents": {
+                                                    "name": "std::Ipv4Addr",
+                                                    "fields": [
+                                                        {
+                                                            "name": "value",
+                                                            "ty": {
+                                                                "Array": {
+                                                                    "length": 4,
+                                                                    "contents": "U8"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "port",
+                                        "ty": "U16"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "socket_ipv6",
+                    "type_id": {
+                        "Record": {
+                            "contents": {
+                                "name": "std::SocketAddrV6",
+                                "fields": [
+                                    {
+                                        "name": "ip",
+                                        "ty": {
+                                            "Record": {
+                                                "contents": {
+                                                    "name": "std::Ipv6Addr",
+                                                    "fields": [
+                                                        {
+                                                            "name": "octets",
+                                                            "ty": {
+                                                                "Array": {
+                                                                    "length": 16,
+                                                                    "contents": "U8"
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "name": "port",
+                                        "ty": "U16"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "socket_ip_ipv4",
+                    "type_id": {
+                        "Enum": {
+                            "name": "std::SocketAddr",
+                            "variants": [
+                                {
+                                    "name": "V4",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::SocketAddrV4",
+                                                        "fields": [
+                                                            {
+                                                                "name": "ip",
+                                                                "ty": {
+                                                                    "Record": {
+                                                                        "contents": {
+                                                                            "name": "std::Ipv4Addr",
+                                                                            "fields": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "ty": {
+                                                                                        "Array": {
+                                                                                            "length": 4,
+                                                                                            "contents": "U8"
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "port",
+                                                                "ty": "U16"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "V6",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::SocketAddrV6",
+                                                        "fields": [
+                                                            {
+                                                                "name": "ip",
+                                                                "ty": {
+                                                                    "Record": {
+                                                                        "contents": {
+                                                                            "name": "std::Ipv6Addr",
+                                                                            "fields": [
+                                                                                {
+                                                                                    "name": "octets",
+                                                                                    "ty": {
+                                                                                        "Array": {
+                                                                                            "length": 16,
+                                                                                            "contents": "U8"
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "port",
+                                                                "ty": "U16"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                },
+                {
+                    "name": "socket_ip_ipv6",
+                    "type_id": {
+                        "Enum": {
+                            "name": "std::SocketAddr",
+                            "variants": [
+                                {
+                                    "name": "V4",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::SocketAddrV4",
+                                                        "fields": [
+                                                            {
+                                                                "name": "ip",
+                                                                "ty": {
+                                                                    "Record": {
+                                                                        "contents": {
+                                                                            "name": "std::Ipv4Addr",
+                                                                            "fields": [
+                                                                                {
+                                                                                    "name": "value",
+                                                                                    "ty": {
+                                                                                        "Array": {
+                                                                                            "length": 4,
+                                                                                            "contents": "U8"
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "port",
+                                                                "ty": "U16"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "V6",
+                                    "fields": [
+                                        {
+                                            "name": "value",
+                                            "ty": {
+                                                "Record": {
+                                                    "contents": {
+                                                        "name": "std::SocketAddrV6",
+                                                        "fields": [
+                                                            {
+                                                                "name": "ip",
+                                                                "ty": {
+                                                                    "Record": {
+                                                                        "contents": {
+                                                                            "name": "std::Ipv6Addr",
+                                                                            "fields": [
+                                                                                {
+                                                                                    "name": "octets",
+                                                                                    "ty": {
+                                                                                        "Array": {
+                                                                                            "length": 16,
+                                                                                            "contents": "U8"
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            {
+                                                                "name": "port",
+                                                                "ty": "U16"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "is_context": false
+                }
+            ]
+        },
+        "context": {
+            "unary": [
+                1
+            ]
+        },
+        "values": {
+            "ipv4": {
+                "value": [
+                    127,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "ipv6": {
+                "octets": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "ip_ipv4": {
+                "V4": {
+                    "value": {
+                        "value": [
+                            127,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                }
+            },
+            "ip_ipv6": {
+                "V6": {
+                    "value": {
+                        "octets": [
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            1
+                        ]
+                    }
+                }
+            },
+            "socket_ipv4": {
+                "ip": {
+                    "value": [
+                        127,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                "port": 61680
+            },
+            "socket_ipv6": {
+                "ip": {
+                    "octets": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1
+                    ]
+                },
+                "port": 61680
+            },
+            "socket_ip_ipv4": {
+                "V4": {
+                    "value": {
+                        "ip": {
+                            "value": [
+                                127,
+                                0,
+                                0,
+                                1
+                            ]
+                        },
+                        "port": 61680
+                    }
+                }
+            },
+            "socket_ip_ipv6": {
+                "V6": {
+                    "value": {
+                        "ip": {
+                            "octets": [
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                1
+                            ]
+                        },
+                        "port": 61680
+                    }
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mickey Benchmark Report</title>
+    <style type="text/css">
+        html, body {
+            font-family: 'Comic Sans MS', sans-serif;
+        }
+
+        header .title {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 3em;
+        }
+
+        header .cmd {
+            font-family: monospace;
+        }
+
+        summary {
+            padding: 3em;
+            background-color: aqua;
+        }
+
+        td.key {
+            font-weight: bold;
+        }
+
+        .essential-stats .label {
+            font-weight: bold;
+        }
+
+        .essential-stats .value {
+            font-family: monospace;
+        }
+
+        .config-params li {
+            font-family: monospace;
+        }
+        .config-params .field {
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.5.1/plotly.min.js"
+        integrity="sha512-8sef2cUp3DCbtTg3ybZnt246+vtj4eTE5OxXs2qTTJkcHd0BZcw3BxMGTQhgII/0mMRZ5Mgf5vYwfafJkDZRSg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header>
+        <div class="title">Mickey Benchmark Report</div>
+        <div class="cmd">
+            ./rocky bench mickey --message-size={{message_size}}
+            --message-count={{message_count}}
+            --curl-delay={{curl_delay}}
+            --static-file-size={{static_file_size}}
+        </div>
+        <h1>Config Params:</h1>
+        <ul class="config-params">
+            {% for k,v in config_params | dictsort %}
+                <li>
+                    <span class="field">{{k}}</span>
+                    <span class="value">{{v}}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </header>
+    <summary>
+        <h1>Key Stats:</h1>
+        <table>
+            <tr>
+                <td class="key">How many times was curl invoked</td>
+                <td>{{number_of_curls}}</td>
+            </tr>
+            <tr>
+                <td class="key">Curl total downloaded bytes</td>
+                <td>{{curl_downloaded_bytes}} bytes</td>
+            </tr>
+            <tr>
+                <td class="key">Efficiency</td>
+                <td>{{ ((message_size * message_count) / curl_downloaded_bytes) * 100 }}%</td>
+            </tr>
+            <tr>
+                <td class="key">Duration (in seconds)</td>
+                <td>{{ duration_ns / (10**9) }} seconds</td>
+            </tr>
+            <tr>
+                <td class="key">Throughput (in bytes/second)</td>
+                <td>{{ (message_size * message_count) / (duration_ns / (10**9)) }} bytes/second</td>
+            </tr>
+            <tr>
+                <td class="key">Average Latency (in seconds)</td>
+                <td>
+                    {% set avg_latency = latencies | mean %}
+                    {{ avg_latency / (10**9) }} seconds
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Percentage of chunks received exactly once</td>
+                <td>
+                    {{ fraction_of_chunks_received_exactly_once * 100 }}%
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Number of padding bytes written</td>
+                <td>
+                    {{ amount_of_padding_bytes }} bytes
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Number of ACKs written</td>
+                <td>
+                    {{ num_acks_written }} = {{ num_acks_written * 8 }} bytes
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Number of Chunks written</td>
+                <td>
+                    {{ num_chunks_written }} = {{ num_chunks_written * (8 + 1024) }} bytes
+                </td>
+            </tr>
+        </table>
+    </summary>
+    {% macro distribution(name, values) %}
+    <h1>{{name}}</h1>
+    <div class="essential-stats">
+        <span class="label">COUNT:</span>
+        <span class="value">{{ values | count }}</span>
+        <span class="label">MIN:</span>
+        <span class="value">{{ values | min }}</span>
+        <span class="label">MAX:</span>
+        <span class="value">{{ values | max }}</span>
+        <span class="label">MEAN:</span>
+        <span class="value">{{ values | mean }}</span>
+        <span class="label">MEDIAN:</span>
+        <span class="value">{{ values | median }}</span>
+        <span class="label">STANDARD DEVIATION:</span>
+        <span class="value">{{ values | stdev }}</span>
+    </div>
+    {{ values | cdfPlot | safe }}
+    {% endmacro %}
+    {{ distribution("Mickey Outgoing Rewrite Nanoseconds", mickey_outgoing_rewrite_nanoseconds) }}
+    {{ distribution("Mickey Incoming Rewrite Nanoseconds", mickey_incoming_rewrite_nanoseconds) }}
+    {{ distribution("How many times did we receieve each chunk?", how_many_times_did_we_recv_each_chunk_frame) }}
+    Maximum chunk sequence number: {{max_chunk_seqnum}}
+    {{ distribution("How many times did we discard each chunk?", how_many_times_did_we_discard_each_chunk_frame) }}
+    <h1>Why did we discard a chunk?</h1>
+    <div id="why-did-we-discard-chunk"></div>
+    <script>
+        (function(){
+            var DATA = {{ discard_reasons | tojson }};
+            var keys = Object.keys(DATA);
+            Plotly.newPlot('why-did-we-discard-chunk', [{
+                values: keys.map((x) => DATA[x]),
+                labels: keys,
+                type: 'pie',
+            }]);
+        })();
+    </script>
+    {{ distribution("How long was an iteration of the thread for the outgoing queue? (nanoseconds)", mickey_outgoing_thread_iteration_nanoseconds) }}
+    {{ distribution("How long was an iteration of the thread for the incoming queue (nanoseconds)", mickey_incoming_thread_iteration_nanoseconds) }}
+    {{ distribution("How long did it take to update the outgoing queue? (nanoseconds)", mickey_outgoing_queue_update_nanoseconds) }}
+    {{ distribution("How long did it take to update the incoming queue (nanoseconds)", mickey_incoming_queue_update_nanoseconds) }}
+</body>
+
+</html>

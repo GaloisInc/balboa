@@ -1,0 +1,8 @@
+[target.'cfg(target_arch = "x86_64")']
+rustflags = ["-C", "target-cpu=broadwell"]
+
+[target.x86_64-apple-darwin]
+rustflags = ["-C", "target-cpu=sandybridge",
+    # These are needed for the OpenSSL injections. They shouldn't harm other targets.
+    "-C", "link-arg=-Wl,-U,_SSL_new",
+    "-C", "link-arg=-Wl,-U,_SSL_CTX_set_keylog_callback"]

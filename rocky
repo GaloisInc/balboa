@@ -1,0 +1,30 @@
+#!/usr/bin/env nix-shell
+#!nix-shell --pure --keep NIX_REMOTE --keep TMPDIR --keep ROCKY_IS_IN_CI -I nixpkgs=./etc/nix/pkgs.nix -i python3 ./etc/nix/pkgsets/rocky_runner.nix
+
+import importlib.util
+import os
+import sys
+from pathlib import Path
+
+if __name__ == "__main__":
+    if os.environ.get("IN_NIX_SHELL") != "pure":
+        print(
+            "Please invoke this file with `./rocky` (or the like). This will run "
+            + "this file using the Nix package manager. If you do not have the Nix "
+            + "package manager, you can install it by following the instructions at "
+            + "https://nixos.org/download.html This script works on both macOS and Linux",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+    if os.getuid() == 0:
+        print("You cannot run the rocky command as root!", file=sys.stderr)
+        sys.exit(1)
+    module_name = "rocky"
+    file_path = str(Path(__file__).resolve().parent / "__init__.py")
+    spec = importlib.util.spec_from_file_location(module_name, file_path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    spec.loader.exec_module(module)
+    from rocky.etc.tool import main
+
+    main()

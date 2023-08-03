@@ -1,0 +1,25 @@
+[package]
+name = "mickey-balboa-ipc"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+stallone = { path = "../../stallone/log" }
+stallone-common = { path = "../../stallone/common" }
+scm-rights = { path = "../../utils/scm-rights" }
+balboa-compression = { path = "../../balboa/compression/core" }
+balboa-coroutine = { path = "../../balboa/coroutine" }
+balboa-rewriter = { path = "../../balboa/rewriter" }
+balboa-covert-signaling-types = { path = "../../balboa/covert-signaling-types" }
+
+libc = "0.2.126"
+parking_lot = "0.12.1"
+static_assertions = "1.1.0"
+hex = "0.4.3"
+snafu = "0.7.1"
+serde = { version = "1.0.140", features = ["derive"] }
+bincode = "1.2.1"
+
+[dev-dependencies]
+proptest = "1.0.0"

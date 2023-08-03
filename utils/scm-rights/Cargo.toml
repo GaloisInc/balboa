@@ -1,0 +1,12 @@
+[package]
+name = "scm-rights"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+libc = "0.2.126"
+errno = "0.2.8"
+
+[dev-dependencies]
+tempfile = "3.3.0"

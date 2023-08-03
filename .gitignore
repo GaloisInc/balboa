@@ -1,0 +1,20 @@
+/.vscode
+/stallone-master
+/.code
+/.idea
+target/
+**/*.rs.bk
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+tmp
+/log.txt
+*.tags
+*.tags.temp
+pyrightconfig.json
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json

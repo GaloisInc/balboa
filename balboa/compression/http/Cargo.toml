@@ -1,0 +1,16 @@
+[package]
+name = "balboa-compression-http"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+stallone = { path = "../../../stallone/log" }
+balboa-compression = { path = "../core" }
+balboa-coroutine = { path = "../../coroutine" }
+balboa-http-header-names = { path = "./header-names/" }
+snafu = "0.7.1"
+arrayvec = "0.7.2"
+memmap2 = "0.5.5"
+parking_lot = "0.12.1"
+rustc-hash = "1.1.0"
+memchr = "2.5.0"

@@ -1,0 +1,19 @@
+[package]
+name = "stallone-parsing"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+stallone-common = {path = "../common"}
+serde = { version = "1.0.140", features = ["derive"] }
+serde_bytes = "0.11.6"
+snafu = "0.7.1"
+lazy_static = "1.4.0"
+bumpalo = { version = "3.10.0", features = ["collections"] }
+object = { version = "0.29.0", features = ["std"] }
+uuid = { version = "1.1.2", features = ["serde"] }
+parking_lot = "0.12.1"
+
+[dev-dependencies]
+stallone = { path = "../log" }

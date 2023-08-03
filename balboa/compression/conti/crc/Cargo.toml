@@ -1,0 +1,18 @@
+[package]
+name = "balboa-conti-crc-sys"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+links = "balboaconticrc"
+build = "build.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+parking_lot = "0.12.1"
+
+[dev-dependencies]
+proptest = "1.0.0"
+
+[build-dependencies]
+cc = "1.0.73"

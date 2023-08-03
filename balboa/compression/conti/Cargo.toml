@@ -1,0 +1,14 @@
+[package]
+name = "conti"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+publish = false
+
+[dependencies]
+balboa-compression = { path = "../core" }
+balboa-coroutine = { path = "../../coroutine" }
+balboa-conti-crc-sys = { path = "crc" }
+twoway = "0.2.2"
+smallvec = "1.9.0"
+stallone = { path = "../../../stallone/log" }

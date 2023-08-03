@@ -1,0 +1,8 @@
+[package]
+name = "balboa-testing-inverting-rewriter"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+balboa-compression = { path = "../../../balboa/compression/core" }

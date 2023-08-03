@@ -1,0 +1,18 @@
+[package]
+name = "stallone-common"
+version = "0.1.0"
+authors = ["Marc Rosen <marc@galois.com>"]
+edition = "2021"
+
+[dependencies]
+smallvec = "1.9.0"
+arrayvec = "0.7.2"
+libc = "0.2.126"
+getrandom = "0.2.7"
+errno = "0.2.8"
+scm-rights = { path = "../../utils/scm-rights" }
+uuid = "1.1.2"
+
+[dev-dependencies]
+proptest = "1.0.0"
+siphasher = "0.3.10"
